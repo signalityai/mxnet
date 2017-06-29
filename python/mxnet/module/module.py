@@ -572,7 +572,7 @@ class Module(BaseModule):
 
             if hasattr(data_batch, "provide_label") and data_batch.provide_label:
                 new_lshape = data_batch.provide_label
-            elif hasattr(data_batch, "label") and data_batch.label:
+            elif hasattr(data_batch, "label") and data_batch.label and data_batch.label[0]:
                 new_lshape = [DataDesc(i.name, j.shape, i.dtype, i.layout) \
                               for i, j in zip(self._label_shapes, data_batch.label)]
             else:
