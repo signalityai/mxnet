@@ -37,6 +37,7 @@ class Detector(object):
         self.mod = mx.mod.Module(symbol, label_names=None, context=ctx)
         self.data_shape = data_shape
         self.mod.bind(data_shapes=[('data', (batch_size, 3, data_shape, data_shape))])
+        #self.mod.bind(data_shapes=[('data', (batch_size, 3, data_shape[0], data_shape[1]))])
         self.mod.set_params(args, auxs)
         self.data_shape = data_shape
         self.mean_pixels = mean_pixels
